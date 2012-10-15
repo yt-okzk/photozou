@@ -12,4 +12,12 @@ describe Photozou do
     Photozou.options[:username].should == 'hoge'
     Photozou.options[:password].should == 'fuga'
   end
+
+  it "should accept ENV variables as configuration" do
+    ENV['PHOTOZOU_USERNAME'] = 'hoge'
+    ENV['PHOTOZOU_PASSWORD'] = 'fuga'
+
+    Photozou.options[:username].should == 'hoge'
+    Photozou.options[:password].should == 'fuga'
+  end
 end
