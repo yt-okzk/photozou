@@ -2,6 +2,8 @@
 require File.expand_path('../lib/photozou/version', __FILE__)
 
 Gem::Specification.new do |gem|
+  gem.add_development_dependency 'rspec'
+
   gem.authors       = ["Yuta Okazaki"]
   gem.email         = ["yt.okzk@gmail.com"]
   gem.description   = %q{TODO: Write a gem description}
