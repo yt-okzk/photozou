@@ -10,6 +10,14 @@ module Photozou
       request(:get, "/nop")
     end
 
+    def photo_album
+      request(:get, "/photo_album")
+    end
+
+    def photo_album_photo(params={})
+      request(:get, "/photo_album_photo", {:album_id => nil, :limit => 100, :offset => 0}.merge(params))
+    end
+
     def body
       Nokogiri.Slop @body
     end

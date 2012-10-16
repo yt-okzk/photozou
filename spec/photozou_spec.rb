@@ -62,4 +62,16 @@ describe Photozou::Client do
       xml.rsp.info.user_id.text.should == "123456789"
     end
   end
+
+  describe "photo_album" do
+    it "should request to photo_album API via GET" do
+      pending "TODO"
+    end
+  end
+
+  describe "photo_album_photo" do
+    it "should request to photo_album_photo API via GET" do
+      pending "TODO"
+    end
+  end
 end
