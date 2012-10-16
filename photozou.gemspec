@@ -7,9 +7,9 @@ Gem::Specification.new do |gem|
 
   gem.authors       = ["Yuta Okazaki"]
   gem.email         = ["yt.okzk@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{A Ruby wrapper for Photozou API}
+  gem.summary       = %q{Photozou API on Ruby}
+  gem.homepage      = "https://github.com/yt-okzk/photozou"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
