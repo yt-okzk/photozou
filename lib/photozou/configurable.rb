@@ -3,10 +3,15 @@ require 'photozou/default'
 module Photozou
   module Configurable
     attr_writer :username, :password
+    attr_accessor :endpoint
 
     class << self
       def keys
-        @keys ||= [:username, :password]
+        @keys ||= [
+          :username,
+          :password,
+          :endpoint
+        ]
       end
     end
 
