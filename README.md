@@ -1,6 +1,7 @@
 # Photozou
 
-TODO: Write a gem description
+A Ruby wrapper for Photozou API.
+Photozou API is here, http://photozou.jp/basic/api
 
 ## Installation
 
@@ -18,7 +19,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Photozou.nop
 
 ## Contributing
 
