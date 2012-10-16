@@ -1,5 +1,7 @@
 module Photozou
   module Default
+    ENDPOINT = 'http://api.photozou.jp/rest'
+
     class << self
       def options
         Hash[Photozou::Configurable.keys.map{|key| [key, send(key)]}]
@@ -11,6 +13,10 @@ module Photozou
 
       def password
         ENV['PHOTOZOU_PASSWORD']
+      end
+
+      def endpoint
+        ENDPOINT
       end
     end
   end

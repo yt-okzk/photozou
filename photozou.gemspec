@@ -2,6 +2,7 @@
 require File.expand_path('../lib/photozou/version', __FILE__)
 
 Gem::Specification.new do |gem|
+  gem.add_dependency 'nokogiri'
   gem.add_development_dependency 'rspec'
 
   gem.authors       = ["Yuta Okazaki"]
