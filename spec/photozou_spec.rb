@@ -34,6 +34,16 @@ describe Photozou do
 end
 
 describe Photozou::Client do
+  let(:nop_ok) {<<-EOXML
+    <?xml version="1.0" encoding="UTF-8" ?>
+    <rsp stat="ok">
+      <info>
+        <user_id>123456789</user_id>
+      </info>
+    </rsp>
+    EOXML
+  }
+
   before(:all) do
     Photozou.setup
   end
@@ -43,14 +53,7 @@ describe Photozou::Client do
       http = Net::HTTP.new("localhost")
       http.should_receive(:request).with(kind_of(Net::HTTP::Get)).and_return do |request|
         response = Net::HTTPOK.new(nil, 200, nil)
-        response.stub!(:body).and_return(<<-EOXML)
-        <?xml version="1.0" encoding="UTF-8" ?>
-        <rsp stat="ok">
-          <info>
-            <user_id>123456789</user_id>
-          </info>
-        </rsp>
-        EOXML
+        response.stub!(:body).and_return(nop_ok)
         response
       end
       Net::HTTP.should_receive(:new).at_least(1).and_return(http)
