@@ -1,4 +1,4 @@
-require 'helper'
+require 'spec_helper'
 
 describe Photozou do
   before(:all) do
