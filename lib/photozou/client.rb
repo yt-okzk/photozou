@@ -18,9 +18,6 @@ module Photozou
       request(:get, "/photo_album_photo", {:album_id => nil, :limit => 100, :offset => 0}.merge(params))
     end
 
-    def body
-      Nokogiri.Slop @body
-    end
 
   private
     def request(method, path, params={})
@@ -32,9 +29,8 @@ module Photozou
 
         req.basic_auth Photozou.options[:username],
                        Photozou.options[:password]
-        @body = http.request(req).body
+        return Nokogiri.Slop http.request(req).body
       end
-      body
     end
 
     def class_from_string(str)
