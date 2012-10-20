@@ -115,7 +115,7 @@ describe Photozou::Client do
   end
 
   def create_http_mock(result)
-    http = Net::HTTP.new("localhost")
+    http = Net::HTTP.new("127.0.0.1")
     http.should_receive(:request).with(kind_of(Net::HTTP::Get)).and_return do |request|
       response = Net::HTTPOK.new(nil, 200, nil)
       response.stub!(:body).and_return(result)
