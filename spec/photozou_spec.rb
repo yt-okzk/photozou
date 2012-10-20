@@ -114,19 +114,9 @@ describe Photozou::Client do
     Photozou.setup
   end
 
-  def create_http_mock(result)
-    http = Net::HTTP.new("localhost")
-    http.should_receive(:request).with(kind_of(Net::HTTP::Get)).and_return do |request|
-      response = Net::HTTPOK.new(nil, 200, nil)
-      response.stub!(:body).and_return(result)
-      response
-    end
-    Net::HTTP.should_receive(:new).at_least(1).and_return(http)
-  end
-
   describe "nop" do
     it "should request to nop API via GET" do
-      create_http_mock(nop_ok)
+      Net::HTTP.should_receive(:start).at_least(1).and_return(Nokogiri.Slop nop_ok)
 
       xml = Photozou.nop
       xml.rsp.info.user_id.text.should == "123456789"
@@ -135,7 +125,7 @@ describe Photozou::Client do
 
   describe "photo_album" do
     it "should request to photo_album API via GET" do
-      create_http_mock(photo_album_ok)
+      Net::HTTP.should_receive(:start).at_least(1).and_return(Nokogiri.Slop photo_album_ok)
 
       xml = Photozou.photo_album
       xml.rsp.info.album.album_id.text.should == "87654321"
@@ -145,7 +135,7 @@ describe Photozou::Client do
 
   describe "photo_album_photo" do
     it "should request to photo_album_photo API via GET" do
-      create_http_mock(photo_album_photo_ok)
+      Net::HTTP.should_receive(:start).at_least(1).and_return(Nokogiri.Slop photo_album_photo_ok)
 
       xml = Photozou.photo_album_photo :album_id => 1234
       xml.rsp.info.photo.photo_id.text.should == "1"
