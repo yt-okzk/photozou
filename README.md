@@ -1,4 +1,5 @@
 # Photozou
+[![Build Status](https://secure.travis-ci.org/yt-okzk/photozou.png)](http://travis-ci.org/yt-okzk/photozou)
 
 A Ruby wrapper for Photozou API.
 Photozou API is here, http://photozou.jp/basic/api
